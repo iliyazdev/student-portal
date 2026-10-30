@@ -76,7 +76,7 @@ All official project documentation and presentation assets are included directly
 
 | Document | Format | Description | Link |
 |:---|:---:|:---|:---:|
-| **Project Report** | 📄 PDF | Full 70+ page academic report covering architecture, ER diagrams, data flow diagrams, and testing methodologies. | [Download PDF](./Documents/Student%20Portal.pdf) |
+| **Project Report** | 📄 PDF | Full 72-page official project report covering System Architecture, Data Flow Diagrams (DFD), UML Design, Test Cases, and ML Results. | [Download PDF](./Documents/Student%20Portal.pdf) |
 | **Presentation Deck** | 📊 PPTX | Official 31-slide defense and viva slide deck. | [Download PPTX](./Documents/student%20Portal.pptx) |
 | **Database Schema** | 🗄️ SQL | Complete SQL schema definitions for all 9 relational tables. | [View Schema](./Documents/database.txt) |
 
@@ -126,6 +126,10 @@ python manage.py runserver
 ```
 
 Open your browser and navigate to `http://127.0.0.1:8000/`.
+
+### 5. Default Credentials
+* **Admin Portal:** `admin` / `admin`
+* **Faculty & Student:** Provisioned through Admin Dashboard or direct registration.
 
 ---
 
