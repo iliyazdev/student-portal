@@ -1,4 +1,4 @@
-# 🎓 SVCE Student Portal — Academic Management & ML Performance Prediction Platform
+# 🎓 Student Portal — Academic Management & ML Performance Prediction Platform
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
 [![Django](https://img.shields.io/badge/Django-2.1.7-green.svg?logo=django&logoColor=white)](https://www.djangoproject.com/)
@@ -32,13 +32,13 @@
 
 Traditional collegiate environments often face communication fragmentation, slow manual attendance bookkeeping, and a critical absence of early academic warnings. 
 
-The **SVCE Student Portal** bridges this gap by unifying **Students**, **Faculty**, and **Administrators** onto a high-performance web platform. In addition to digitizing daily academic workflows (attendance, study materials, assignments, marks, and feedback), it features a built-in **Predictive Machine Learning Pipeline** that evaluates historical attendance and examination trends to classify student performance as **Good**, **Fair**, or **Poor** with **93.4% accuracy** (using XGBoost).
+The **Student Portal** bridges this gap by unifying **Students**, **Faculty**, and **Administrators** onto a high-performance web platform. In addition to digitizing daily academic workflows (attendance, study materials, assignments, marks, and feedback), it features a built-in **Predictive Machine Learning Pipeline** that evaluates historical attendance and examination trends to classify student performance as **Good**, **Fair**, or **Poor** with **93.4% accuracy** (using XGBoost).
 
 ---
 
 ## ⚖️ The Problem vs The Solution
 
-| Challenge in Existing Systems | How SVCE Student Portal Solves It |
+| Challenge in Existing Systems | How Student Portal Solves It |
 | :--- | :--- |
 | **Manual Data Management:** Paper registers and disparate spreadsheets cause administrative delays and lost records. | **Unified Relational Cloud Database:** Real-time synchronized storage for marks, attendance, and credentials. |
 | **No Early Warning System:** Marks are recorded only after exams; struggling students are caught too late. | **Proactive ML Prediction:** Predicts student trajectory weeks before semester finals to enable mentorship. |
@@ -246,4 +246,5 @@ Comprehensive verification strategies applied across the portal modules:
   * GitHub: [@iliyazdev](https://github.com/iliyazdev)
   * Portfolio: [Iliyaz Portfolio](https://github.com/iliyazdev)
 
-Developed as a major academic project for **SVCN / SVCE Higher-Education Institutions**, demonstrating modern human-centered educational software engineering.
+Developed as a comprehensive academic project for higher-education institutions, demonstrating modern human-centered educational software engineering.
+
