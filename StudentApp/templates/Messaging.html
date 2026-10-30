@@ -1,0 +1,465 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faculty Portal - Send Message</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+
+/* ===== SAME UI THEME ===== */
+
+:root{
+--primary-blue:#1E4E8C;
+--secondary-blue:#3B6EA5;
+--accent-red:#E64A5B;
+--text-light:#ffffff;
+--text-dark:#2F2F2F;
+--text-muted:#6c757d;
+--bg-light:#F3F6FA;
+--border-radius-pill:30px;
+--border-radius-xl:20px;
+--font-family:'Poppins',sans-serif;
+}
+
+/* ===== RESET ===== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:var(--font-family);
+background:var(--bg-light);
+color:var(--text-dark);
+display:flex;
+flex-direction:column;
+min-height:100vh;
+}
+
+a{text-decoration:none;color:inherit;transition:.3s}
+
+/* ===== HEADER ===== */
+
+.main-header{
+background:linear-gradient(135deg,#1E4E8C,#3B6EA5);
+color:white;
+padding:.8rem 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 4px 14px rgba(0,0,0,.15);
+}
+
+.logo-container{
+display:flex;
+align-items:center;
+font-size:1.5rem;
+font-weight:700;
+}
+
+.logo-icon{
+font-size:2.1rem;
+margin-right:12px;
+}
+
+/* NAVIGATION */
+
+.nav-menu{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.nav-link{
+padding:.5rem 1rem;
+border-radius:var(--border-radius-pill);
+font-weight:500;
+font-size:.85rem;
+border:2px solid transparent;
+}
+
+.nav-link.active{
+background:var(--accent-red);
+border-color:var(--accent-red);
+color:white;
+}
+
+.nav-link:not(.active){
+color:white;
+border-color:white;
+}
+
+.nav-link:not(.active):hover{
+background:var(--accent-red);
+border-color:var(--accent-red);
+}
+
+.logout-btn{
+background:#dc2626 !important;
+border-color:#dc2626 !important;
+}
+
+/* ===== MAIN CONTENT ===== */
+
+.main-content{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:40px 5%;
+}
+
+/* FORM CARD */
+
+.form-container{
+width:100%;
+max-width:650px;
+background:white;
+border-radius:var(--border-radius-xl);
+box-shadow:0 15px 40px rgba(0,0,0,0.12);
+padding:40px;
+}
+
+/* HEADER */
+
+.form-header{
+text-align:center;
+margin-bottom:25px;
+}
+
+.form-title{
+font-size:2rem;
+color:var(--primary-blue);
+margin-bottom:5px;
+}
+
+.form-subtitle{
+color:var(--text-muted);
+}
+
+/* ALERT */
+
+.alert-message{
+padding:12px 15px;
+border-radius:8px;
+margin-bottom:20px;
+font-size:.95rem;
+font-weight:500;
+text-align:center;
+}
+
+.alert-message.success{
+background:#d1fae5;
+color:#065f46;
+border:1px solid #34d399;
+}
+
+.alert-message.error{
+background:#fee2e2;
+color:#b91c1c;
+border:1px solid #f87171;
+}
+
+/* FORM GRID */
+
+.form-grid{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.input-group{
+display:flex;
+flex-direction:column;
+}
+
+.input-label{
+font-weight:500;
+margin-bottom:6px;
+font-size:.95rem;
+}
+
+/* INPUTS */
+
+.form-input,
+.form-textarea{
+padding:12px 14px;
+border:2px solid #e5e7eb;
+border-radius:10px;
+font-family:inherit;
+font-size:.95rem;
+background:#f9fafb;
+transition:.3s;
+}
+
+.form-textarea{
+resize:none;
+height:120px;
+}
+
+.form-input:focus,
+.form-textarea:focus{
+border-color:var(--secondary-blue);
+outline:none;
+background:white;
+box-shadow:0 0 0 3px rgba(59,110,165,.15);
+}
+
+/* SELECT TABLE */
+
+.dynamic-select-table{
+width:100%;
+border-collapse:collapse;
+}
+
+.dynamic-select-table tr{
+display:flex;
+flex-direction:column;
+}
+
+.dynamic-select-table td{
+border:none;
+padding:0;
+}
+
+.dynamic-select-table td:first-child{
+margin-bottom:6px;
+}
+
+.dynamic-select-table select{
+width:100%;
+padding:12px 14px;
+border:2px solid #e5e7eb;
+border-radius:10px;
+background:#f9fafb;
+font-size:.95rem;
+}
+
+.dynamic-select-table select:focus{
+border-color:var(--secondary-blue);
+outline:none;
+box-shadow:0 0 0 3px rgba(59,110,165,.15);
+}
+
+/* SEND BUTTON */
+
+.submit-btn{
+background:var(--primary-blue);
+color:white;
+border:none;
+padding:13px;
+border-radius:10px;
+font-size:1rem;
+font-weight:600;
+cursor:pointer;
+transition:.25s;
+}
+
+.submit-btn:hover{
+background:var(--accent-red);
+transform:translateY(-2px);
+box-shadow:0 6px 18px rgba(230,74,91,0.35);
+}
+
+/* ===== FOOTER ===== */
+
+.main-footer{
+background:var(--primary-blue);
+color:white;
+padding:1rem 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.footer-links{
+display:flex;
+gap:25px;
+}
+
+.footer-link{
+font-size:.9rem;
+opacity:.8;
+}
+
+.footer-link:hover{
+opacity:1;
+text-decoration:underline;
+}
+
+.social-icons{
+display:flex;
+gap:20px;
+}
+
+.social-icon{
+font-size:1.2rem;
+opacity:.8;
+}
+
+.social-icon:hover{
+opacity:1;
+transform:translateY(-3px);
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:1024px){
+
+.main-header{
+flex-direction:column;
+gap:12px;
+}
+
+.nav-menu{
+justify-content:center;
+}
+
+}
+
+@media(max-width:768px){
+
+.form-container{
+padding:25px;
+}
+
+.main-footer{
+flex-direction:column;
+gap:15px;
+text-align:center;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="main-header">
+
+<div class="logo-container">
+<i class="fas fa-chalkboard-teacher logo-icon"></i>
+<span>Faculty Dashboard</span>
+</div>
+
+<nav class="nav-menu">
+
+<a href="{% url 'AddAttendance' %}" class="nav-link">
+<i class="fas fa-user-check"></i> Attendance
+</a>
+
+<a href="{% url 'CreateAssignments' %}" class="nav-link">
+<i class="fas fa-book"></i> Assignments
+</a>
+
+<a href="{% url 'UploadMaterial' %}" class="nav-link">
+<i class="fas fa-upload"></i> Materials
+</a>
+
+<a href="{% url 'AddMarks' %}" class="nav-link">
+<i class="fas fa-chart-bar"></i> Marks
+</a>
+
+<a href="{% url 'Messaging' %}" class="nav-link active">
+<i class="fas fa-envelope"></i> Messaging
+</a>
+
+<a href="{% url 'ViewProgressReport' %}" class="nav-link">
+<i class="fas fa-chart-line"></i> Progress
+</a>
+
+<a href="{% url 'ViewStudentMessages' %}" class="nav-link">
+<i class="fas fa-inbox"></i> Inbox
+</a>
+
+<a href="{% url 'Logout' %}" class="nav-link logout-btn">
+<i class="fas fa-sign-out-alt"></i> Logout
+</a>
+
+</nav>
+
+</header>
+
+<main class="main-content">
+
+<div class="form-container">
+
+<div class="form-header">
+<h2 class="form-title">Send a Message</h2>
+<p class="form-subtitle">Communicate directly with your students.</p>
+</div>
+
+{% if data %}
+{% if "successfully" in data %}
+
+<div class="alert-message success">
+<i class="fas fa-check-circle"></i> {{ data }}
+</div>
+{% else %}
+<div class="alert-message error">
+<i class="fas fa-exclamation-triangle"></i> {{ data }}
+</div>
+{% endif %}
+{% endif %}
+
+<form name="f1" method="post" action="{% url 'MessagingAction' %}">
+{% csrf_token %}
+
+<div class="form-grid">
+
+<table class="dynamic-select-table">
+{{ data1|safe }}
+</table>
+
+<div class="input-group">
+<label class="input-label">Subject</label>
+<input type="text" name="t1" class="form-input" placeholder="Message Subject" required>
+</div>
+
+<div class="input-group">
+<label class="input-label">Message</label>
+<textarea name="t2" class="form-textarea" placeholder="Type your message here..." required></textarea>
+</div>
+
+<button type="submit" class="submit-btn">
+<i class="fas fa-paper-plane"></i> Send Message
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</main>
+
+<footer class="main-footer">
+
+<div class="footer-links">
+<a href="#" class="footer-link">Contact Support</a>
+<a href="#" class="footer-link">Privacy Policy</a>
+<a href="#" class="footer-link">Terms of Service</a>
+</div>
+
+<div class="social-icons">
+<a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+<a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+<a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+<a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+</div>
+
+</footer>
+
+</body>
+</html>

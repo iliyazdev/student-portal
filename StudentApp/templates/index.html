@@ -1,0 +1,431 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Portal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+
+/* COLOR SYSTEM BASED ON CAMPUS IMAGE */
+
+:root {
+--primary-blue:#1E4E8C;
+--secondary-blue:#3B6EA5;
+--accent-red:#E64A5B;
+--text-light:#ffffff;
+--text-dark:#2F2F2F;
+--text-muted:#6c757d;
+--bg-light:#F3F6FA;
+--border-radius-pill:30px;
+--border-radius-xl:20px;
+--font-family:'Poppins',sans-serif;
+}
+
+/* GLOBAL RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:var(--font-family);
+background-color:var(--bg-light);
+color:var(--text-dark);
+display:flex;
+flex-direction:column;
+height:100vh;
+overflow:hidden;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+transition:0.3s;
+}
+
+ul{
+list-style:none;
+}
+
+h1,h2,h3{
+font-weight:700;
+}
+
+/* HEADER */
+
+.main-header{
+background:linear-gradient(135deg,#1E4E8C,#3B6EA5);
+color:var(--text-light);
+padding:0.8rem 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 4px 14px rgba(0,0,0,0.15);
+flex-shrink:0;
+z-index:10;
+}
+
+.logo-container{
+display:flex;
+align-items:center;
+font-size:1.5rem;
+font-weight:700;
+}
+
+.logo-icon{
+font-size:2.2rem;
+margin-right:12px;
+}
+
+/* NAVIGATION */
+
+.nav-menu{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.nav-link{
+padding:0.5rem 1.2rem;
+border-radius:var(--border-radius-pill);
+font-weight:500;
+font-size:0.95rem;
+border:2px solid transparent;
+white-space:nowrap;
+transition:0.3s;
+}
+
+.nav-link.active{
+background-color:var(--accent-red);
+color:var(--text-light);
+border-color:var(--accent-red);
+}
+
+.nav-link:not(.active){
+color:var(--text-light);
+border-color:var(--text-light);
+}
+
+.nav-link:not(.active):hover{
+background-color:var(--accent-red);
+border-color:var(--accent-red);
+}
+
+/* MAIN */
+
+.main-content{
+flex:1;
+display:flex;
+align-items:center;
+width:100%;
+overflow:hidden;
+}
+
+/* HERO */
+
+.hero-section{
+padding:2vh 5%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+max-width:1200px;
+margin:0 auto;
+gap:60px;
+width:100%;
+}
+
+/* IMAGE CONTAINER */
+
+.hero-image-container{
+flex:1;
+position:relative;
+height:40vh;
+min-height:300px;
+border-radius:var(--border-radius-xl);
+box-shadow:0 15px 40px rgba(0,0,0,0.15);
+overflow:hidden;
+}
+
+/* IMAGE OVERLAY */
+
+.hero-image-container::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(
+to left,
+rgba(255,255,255,0.1),
+rgba(10,68,122,0.15)
+);
+pointer-events:none;
+}
+
+/* CAROUSEL */
+
+.carousel-track{
+display:flex;
+height:100%;
+width:100%;
+transition:transform 0.8s ease-in-out;
+}
+
+.hero-image{
+flex:0 0 100%;
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+transition:transform 8s ease;
+}
+
+.hero-image-container:hover .hero-image{
+transform:scale(1.05);
+}
+
+/* HERO TEXT */
+
+.hero-text-container{
+flex:1;
+z-index:5;
+}
+
+.hero-title{
+font-size:2.8rem;
+line-height:1.2;
+margin-bottom:20px;
+color:var(--primary-blue);
+letter-spacing:-0.5px;
+position:relative;
+}
+
+/* RED ACCENT UNDER TITLE */
+
+.hero-title::after{
+content:"";
+display:block;
+width:60px;
+height:4px;
+background:var(--accent-red);
+margin-top:12px;
+border-radius:4px;
+}
+
+.hero-subtitle{
+font-size:1.1rem;
+color:var(--text-muted);
+margin-bottom:30px;
+line-height:1.6;
+}
+
+/* FOOTER */
+
+.main-footer{
+background-color:var(--primary-blue);
+color:var(--text-light);
+padding:1rem 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-shrink:0;
+z-index:10;
+}
+
+.footer-links{
+display:flex;
+gap:25px;
+}
+
+.footer-link{
+font-size:0.9rem;
+opacity:0.8;
+}
+
+.footer-link:hover{
+opacity:1;
+text-decoration:underline;
+}
+
+.social-icons{
+display:flex;
+gap:20px;
+}
+
+.social-icon{
+font-size:1.2rem;
+opacity:0.8;
+}
+
+.social-icon:hover{
+opacity:1;
+transform:translateY(-3px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width:992px){
+
+.hero-section{
+flex-direction:column;
+text-align:center;
+padding:4vh 5%;
+gap:30px;
+}
+
+.hero-image-container{
+order:-1;
+width:90%;
+margin:0 auto;
+height:40vh;
+}
+
+.hero-title{
+font-size:2.2rem;
+}
+
+}
+
+@media (max-width:768px){
+
+.main-header{
+flex-direction:column;
+gap:15px;
+padding:1rem 5%;
+}
+
+.nav-menu{
+justify-content:center;
+}
+
+.main-footer{
+flex-direction:column;
+gap:15px;
+text-align:center;
+padding:1rem 5%;
+}
+
+body{
+height:auto;
+min-height:100vh;
+overflow:auto;
+}
+
+.hero-image-container{
+width:100%;
+height:35vh;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="main-header">
+
+<div class="logo-container">
+<i class="fas fa-graduation-cap logo-icon"></i>
+<span>Student Portal</span>
+</div>
+
+<nav class="nav-menu">
+<a href="{% url 'index' %}" class="nav-link active">Home</a>
+<a href="{% url 'StudentLogin' %}" class="nav-link">Student Login</a>
+<a href="{% url 'FacultyLogin' %}" class="nav-link">Faculty Login</a>
+<a href="{% url 'AdminLogin' %}" class="nav-link">Admin Login</a>
+</nav>
+
+</header>
+
+<main class="main-content">
+
+<section class="hero-section">
+
+<div class="hero-text-container">
+
+<h1 class="hero-title">
+Welcome to Your Student Portal
+</h1>
+
+<p class="hero-subtitle">
+A modern portal connecting students, faculty, and campus resources to manage academics and track your progress.
+</p>
+
+</div>
+
+<div class="hero-image-container">
+
+<div class="carousel-track">
+
+<img src="{% static 'images/6.png' %}" class="hero-image">
+
+<img src="{% static 'images/2.png' %}" class="hero-image">
+
+<img src="{% static 'images/1.png' %}" class="hero-image">
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer class="main-footer">
+
+<div class="footer-links">
+<a href="#" class="footer-link">Contact Us</a>
+<a href="#" class="footer-link">Privacy Policy</a>
+<a href="#" class="footer-link">Terms of Service</a>
+</div>
+
+<div class="social-icons">
+<a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+<a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+<a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+<a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+</div>
+
+</footer>
+
+<script>
+
+document.addEventListener('DOMContentLoaded',function(){
+
+const track=document.querySelector('.carousel-track');
+const images=document.querySelectorAll('.hero-image');
+
+if(images.length<=1)return;
+
+let currentIndex=0;
+const intervalTime=4000;
+
+function slideImage(){
+
+currentIndex=(currentIndex+1)%images.length;
+
+const slidePercentage=currentIndex*-100;
+
+track.style.transform=`translateX(${slidePercentage}%)`;
+
+}
+
+setInterval(slideImage,intervalTime);
+
+});
+
+</script>
+
+</body>
+</html>

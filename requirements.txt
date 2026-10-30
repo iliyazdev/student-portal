@@ -1,0 +1,16 @@
+# Core Web Framework
+Django>=2.1.7,<3.0
+
+# Machine Learning & Data Science
+xgboost>=1.2.0
+scikit-learn>=0.23.0
+pandas>=0.25.3
+numpy>=1.19.2
+
+# Visualization & Charts
+matplotlib>=3.1.1
+seaborn>=0.10.1
+
+# Database Drivers
+PyMySQL>=0.9.3
+cryptography>=3.4.0
