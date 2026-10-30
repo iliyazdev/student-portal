@@ -165,5 +165,5 @@ UI/UX Designer & Full-Stack Developer
 ---
 
 <p align="center">
-  <sub>Built with ❤️ by Shaik Iliyaz • <a href="https://iliyaz.me">iliyaz.me</a></sub>
+  <sub>Built with ❤️ by Shaik Iliyaz</sub>
 </p>
